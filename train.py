@@ -3,8 +3,9 @@ from CamVid import *
 import torch
 import time
 from torch.utils.data import Dataset, DataLoader
+import pdb
 
-batch_size = 500   # Number of samples in each batch
+batch_size = 5   # Number of samples in each batch
 epoch_num = 4      # Number of epochs to train the network
 lr = 0.0005        # Learning rate
 
@@ -32,7 +33,7 @@ if __name__ == "__main__":
                 #  input_tensor = input_tensor.cuda(GPU_ID)
             #      target_tensor = target_tensor.cuda(GPU_ID)
 
-            predicted_tensor, softmaxed_tensor = segnet(input_tensor)
+            softmaxed_tensor = segnet(input_tensor)
 
 
             optimizer.zero_grad()
