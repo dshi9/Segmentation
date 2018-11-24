@@ -45,38 +45,38 @@ CAMVID_CLASSES = [  'Animal',
                     'Wall'
                     ]
 CAMVID_CLASS_COLOR = [
-                    (64,128,64),
-                    (192,0,128),
-                    (0,128,192),
-                    (0,128,64),
-                    (128,0,0),
-                    (64,0,128),
-                    (64,0,192),
-                    (192,128,64),
-                    (192,192,128),
-                    (64,64,128),
-                    (128,0,192),
-                    (192,0,64),
-                    (128,128,64),
-                    (192,0,192),
-                    (128,64,64),
-                    (64,192,128),
-                    (64,64,0),
-                    (128,64,128),
-                    (128,128,192),
-                    (0,0,192),
-                    (192,128,128),
-                    (128,128,128),
-                    (64,128,192),
-                    (0,0,64),
-                    (0,64,64),
-                    (192,64,128),
-                    (128,128,0),
-                    (192,128,192),
-                    (64,0,64),
-                    (192,192,0),
-                    (0,0,0),
-                    (64,192,0)
+                    [64,128,64],
+                    [192,0,128],
+                    [0,128,192],
+                    [0,128,64],
+                    [128,0,0],
+                    [64,0,128],
+                    [64,0,192],
+                    [192,128,64],
+                    [192,192,128],
+                    [64,64,128],
+                    [128,0,192],
+                    [192,0,64],
+                    [128,128,64],
+                    [192,0,192],
+                    [128,64,64],
+                    [64,192,128],
+                    [64,64,0],
+                    [128,64,128],
+                    [128,128,192],
+                    [0,0,192],
+                    [192,128,128],
+                    [128,128,128],
+                    [64,128,192],
+                    [0,0,64],
+                    [0,64,64],
+                    [192,64,128],
+                    [128,128,0],
+                    [192,128,192],
+                    [64,0,64],
+                    [192,192,0],
+                    [0,0,0],
+                    [64,192,0]
                     ]
 
 class CamVid(Dataset):
@@ -103,9 +103,9 @@ class CamVid(Dataset):
         gt_mask = self.load_mask(path=mask_path)
 
         data = {
-                    'image': torch.FloatTensor(image),
-                    'mask' : torch.LongTensor(gt_mask)
-                    }
+                'image': torch.FloatTensor(image),
+                'mask' : torch.LongTensor(gt_mask)
+                }
 
         return data
 
@@ -140,11 +140,11 @@ class CamVid(Dataset):
 
     def load_mask(self, path=None):
         raw_image = Image.open(path)
-        raw_image = raw_image.resize((224, 224))
-        imx_t = np.array(raw_image)
-        # border
-        #  imx_t[imx_t==255] = len(VOC_CLASSES)
-
+        raw_image = np.array(raw_image.resize((224, 224)))
+        imx_t = np.zeros((224,224))
+        for i in range(224):
+            for j in range(224):
+                imx_t[i, j] = CAMVID_CLASS_COLOR.index(list(raw_image[i,j]))
         return imx_t
 
 

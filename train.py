@@ -5,7 +5,7 @@ import time
 from torch.utils.data import Dataset, DataLoader
 import pdb
 
-batch_size = 5   # Number of samples in each batch
+batch_size = 1   # Number of samples in each batch
 epoch_num = 4      # Number of epochs to train the network
 lr = 0.0005        # Learning rate
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
 
     dataset = CamVid(img_dir=img_dir, mask_dir=mask_dir)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=1)
     segnet = Segnet(32)
     optimizer = torch.optim.Adam(segnet.parameters(), lr=lr)
     criterion = torch.nn.CrossEntropyLoss()
@@ -37,6 +37,7 @@ if __name__ == "__main__":
 
 
             optimizer.zero_grad()
+            pdb.set_trace()
             loss = criterion(softmaxed_tensor, target_tensor)
             loss.backward()
             optimizer.step()
