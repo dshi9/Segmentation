@@ -81,7 +81,10 @@ CAMVID_CLASS_COLOR = [
 
 class CamVid(Dataset):
     def __init__(self, img_dir, mask_dir, transform=None):
-        self.images = list(map(lambda x: x.split(".")[0], listdir(img_dir)))
+        file_names = listdir(img_dir)
+        # has invalid mask
+        file_names.remove("Seq05VD_f02610.png")
+        self.images = list(map(lambda x: x.split(".")[0], file_names))
         self.transform = transform
 
         self.extension = ".png"
@@ -144,6 +147,8 @@ class CamVid(Dataset):
         imx_t = np.zeros((224,224))
         for i in range(224):
             for j in range(224):
+                if list(raw_image[i,j]) not in CAMVID_CLASS_COLOR:
+                    print(path + " " + str(list(raw_image[i,j])))
                 imx_t[i, j] = CAMVID_CLASS_COLOR.index(list(raw_image[i,j]))
         return imx_t
 
