@@ -17,7 +17,7 @@ if __name__ == "__main__":
     dataset = CamVid(img_dir=img_dir, mask_dir=mask_dir)
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4)
     segnet = Segnet(32).cuda()
-    optimizer = torch.optim.Adam(segnet.parameters(), lr=lr)
+    optimizer = torch.optim.SGD(segnet.parameters(), lr=lr)
     criterion = torch.nn.CrossEntropyLoss().cuda()
 
     is_better = True
