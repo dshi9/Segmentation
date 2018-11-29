@@ -178,70 +178,70 @@ class Segnet(nn.Module):
     def init_vgg_weights(self):
         vgg16 = models.vgg16(pretrained=True)
 
-        assert self.conv1_1.weight.size() == vgg16.features[0].weight.size()
-        self.conv1_1.weight.data = vgg16.features[0].weight.data
-        assert self.conv1_1.bias.size() == vgg16.features[0].bias.size()
-        self.conv1_1.bias.data = vgg16.features[0].bias.data
+        assert self.conv1_1[0].weight.size() == vgg16.features[0].weight.size()
+        self.conv1_1[0].weight.data = vgg16.features[0].weight.data
+        assert self.conv1_1[0].bias.size() == vgg16.features[0].bias.size()
+        self.conv1_1[0].bias.data = vgg16.features[0].bias.data
 
-        assert self.conv1_2.weight.size() == vgg16.features[2].weight.size()
-        self.conv1_2.weight.data = vgg16.features[2].weight.data
-        assert self.conv1_2.bias.size() == vgg16.features[2].bias.size()
-        self.conv1_2.bias.data = vgg16.features[2].bias.data
+        assert self.conv1_2[0].weight.size() == vgg16.features[2].weight.size()
+        self.conv1_2[0].weight.data = vgg16.features[2].weight.data
+        assert self.conv1_2[0].bias.size() == vgg16.features[2].bias.size()
+        self.conv1_2[0].bias.data = vgg16.features[2].bias.data
 
-        assert self.conv2_1.weight.size() == vgg16.features[5].weight.size()
-        self.conv2_1.weight.data = vgg16.features[5].weight.data
-        assert self.conv2_1.bias.size() == vgg16.features[5].bias.size()
-        self.conv2_1.bias.data = vgg16.features[5].bias.data
+        assert self.conv2_1[0].weight.size() == vgg16.features[5].weight.size()
+        self.conv2_1[0].weight.data = vgg16.features[5].weight.data
+        assert self.conv2_1[0].bias.size() == vgg16.features[5].bias.size()
+        self.conv2_1[0].bias.data = vgg16.features[5].bias.data
 
-        assert self.conv2_2.weight.size() == vgg16.features[7].weight.size()
-        self.conv2_2.weight.data = vgg16.features[7].weight.data
-        assert self.conv2_2.bias.size() == vgg16.features[7].bias.size()
-        self.conv2_2.bias.data = vgg16.features[7].bias.data
+        assert self.conv2_2[0].weight.size() == vgg16.features[7].weight.size()
+        self.conv2_2[0].weight.data = vgg16.features[7].weight.data
+        assert self.conv2_2[0].bias.size() == vgg16.features[7].bias.size()
+        self.conv2_2[0].bias.data = vgg16.features[7].bias.data
 
-        assert self.conv3_1.weight.size() == vgg16.features[10].weight.size()
-        self.conv3_1.weight.data = vgg16.features[10].weight.data
-        assert self.conv3_1.bias.size() == vgg16.features[10].bias.size()
-        self.conv3_1.bias.data = vgg16.features[10].bias.data
+        assert self.conv3_1[0].weight.size() == vgg16.features[10].weight.size()
+        self.conv3_1[0].weight.data = vgg16.features[10].weight.data
+        assert self.conv3_1[0].bias.size() == vgg16.features[10].bias.size()
+        self.conv3_1[0].bias.data = vgg16.features[10].bias.data
 
-        assert self.conv3_2.weight.size() == vgg16.features[12].weight.size()
-        self.conv3_2.weight.data = vgg16.features[12].weight.data
-        assert self.conv3_2.bias.size() == vgg16.features[12].bias.size()
-        self.conv3_2.bias.data = vgg16.features[12].bias.data
+        assert self.conv3_2[0].weight.size() == vgg16.features[12].weight.size()
+        self.conv3_2[0].weight.data = vgg16.features[12].weight.data
+        assert self.conv3_2[0].bias.size() == vgg16.features[12].bias.size()
+        self.conv3_2[0].bias.data = vgg16.features[12].bias.data
 
-        assert self.conv3_3.weight.size() == vgg16.features[14].weight.size()
-        self.conv3_3.weight.data = vgg16.features[14].weight.data
-        assert self.conv3_3.bias.size() == vgg16.features[14].bias.size()
-        self.conv3_3.bias.data = vgg16.features[14].bias.data
+        assert self.conv3_3[0].weight.size() == vgg16.features[14].weight.size()
+        self.conv3_3[0].weight.data = vgg16.features[14].weight.data
+        assert self.conv3_3[0].bias.size() == vgg16.features[14].bias.size()
+        self.conv3_3[0].bias.data = vgg16.features[14].bias.data
 
-        assert self.conv4_1.weight.size() == vgg16.features[17].weight.size()
-        self.conv4_1.weight.data = vgg16.features[17].weight.data
-        assert self.conv4_1.bias.size() == vgg16.features[17].bias.size()
-        self.conv4_1.bias.data = vgg16.features[17].bias.data
+        assert self.conv4_1[0].weight.size() == vgg16.features[17].weight.size()
+        self.conv4_1[0].weight.data = vgg16.features[17].weight.data
+        assert self.conv4_1[0].bias.size() == vgg16.features[17].bias.size()
+        self.conv4_1[0].bias.data = vgg16.features[17].bias.data
 
-        assert self.conv4_2.weight.size() == vgg16.features[19].weight.size()
-        self.conv4_2.weight.data = vgg16.features[19].weight.data
-        assert self.conv4_2.bias.size() == vgg16.features[19].bias.size()
-        self.conv4_2.bias.data = vgg16.features[19].bias.data
+        assert self.conv4_2[0].weight.size() == vgg16.features[19].weight.size()
+        self.conv4_2[0].weight.data = vgg16.features[19].weight.data
+        assert self.conv4_2[0].bias.size() == vgg16.features[19].bias.size()
+        self.conv4_2[0].bias.data = vgg16.features[19].bias.data
 
-        assert self.conv4_3.weight.size() == vgg16.features[21].weight.size()
-        self.conv4_3.weight.data = vgg16.features[21].weight.data
-        assert self.conv4_3.bias.size() == vgg16.features[21].bias.size()
-        self.conv4_3.bias.data = vgg16.features[21].bias.data
+        assert self.conv4_3[0].weight.size() == vgg16.features[21].weight.size()
+        self.conv4_3[0].weight.data = vgg16.features[21].weight.data
+        assert self.conv4_3[0].bias.size() == vgg16.features[21].bias.size()
+        self.conv4_3[0].bias.data = vgg16.features[21].bias.data
 
-        assert self.conv5_1.weight.size() == vgg16.features[24].weight.size()
-        self.conv5_1.weight.data = vgg16.features[24].weight.data
-        assert self.conv5_1.bias.size() == vgg16.features[24].bias.size()
-        self.conv5_1.bias.data = vgg16.features[24].bias.data
+        assert self.conv5_1[0].weight.size() == vgg16.features[24].weight.size()
+        self.conv5_1[0].weight.data = vgg16.features[24].weight.data
+        assert self.conv5_1[0].bias.size() == vgg16.features[24].bias.size()
+        self.conv5_1[0].bias.data = vgg16.features[24].bias.data
 
-        assert self.conv5_2.weight.size() == vgg16.features[26].weight.size()
-        self.conv5_2.weight.data = vgg16.features[26].weight.data
-        assert self.conv5_2.bias.size() == vgg16.features[26].bias.size()
-        self.conv5_2.bias.data = vgg16.features[26].bias.data
+        assert self.conv5_2[0].weight.size() == vgg16.features[26].weight.size()
+        self.conv5_2[0].weight.data = vgg16.features[26].weight.data
+        assert self.conv5_2[0].bias.size() == vgg16.features[26].bias.size()
+        self.conv5_2[0].bias.data = vgg16.features[26].bias.data
 
-        assert self.conv5_3.weight.size() == vgg16.features[28].weight.size()
-        self.conv5_3.weight.data = vgg16.features[28].weight.data
-        assert self.conv5_3.bias.size() == vgg16.features[28].bias.size()
-        self.conv5_3.bias.data = vgg16.features[28].bias.data
+        assert self.conv5_3[0].weight.size() == vgg16.features[28].weight.size()
+        self.conv5_3[0].weight.data = vgg16.features[28].weight.data
+        assert self.conv5_3[0].bias.size() == vgg16.features[28].bias.size()
+        self.conv5_3[0].bias.data = vgg16.features[28].bias.data
 
     def predict(self, x):
         # a function to predict the labels of a batch of inputs
