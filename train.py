@@ -6,7 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 import pdb
 
 batch_size = 5   # Number of samples in each batch
-epoch_num = 4      # Number of epochs to train the network
+epoch_num = 40      # Number of epochs to train the network
 lr = 0.0005        # Learning rate
 
 if __name__ == "__main__":
